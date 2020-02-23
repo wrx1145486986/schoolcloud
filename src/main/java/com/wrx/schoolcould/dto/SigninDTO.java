@@ -1,5 +1,6 @@
 package com.wrx.schoolcould.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /*
@@ -13,6 +14,8 @@ import lombok.Data;
 * */
 
 @Data
+// 加上此注解后 属性值为 null的 不会进行 json转换传递给前端
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class SigninDTO {
 
     private Integer code;

@@ -31,6 +31,12 @@
             <version>1.2.62</version>
         </dependency>
 
+        <!--        json 空字段过滤-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
         <!--        mybatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
