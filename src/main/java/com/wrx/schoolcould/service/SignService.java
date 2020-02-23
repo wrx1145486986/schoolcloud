@@ -32,8 +32,8 @@ public class SignService {
 //        验证session中的token 与 请求头中的 token 是否相等
             if (!TokenProccessor.equalsToken(req)) {
 //            如果两者不相等则查库比较 邮箱和地址
-
                 User user = userMapper.findByEmail(email);
+
                 if (user != null) {
                     if (user.getUpwd().equals(password)) {
 //                    账号密码正确

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600,allowCredentials = "true")
 public class SignController {
 
     @Autowired
