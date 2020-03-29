@@ -1,23 +1,30 @@
 package com.wrx.schoolcould.pojo;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 @Data
+@TableName("user")
 public class User {
 
+    @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
     private String email;
     private String phoneNumber;
     private String studentId;
-    private String uname;
-    private String upwd;
-    private Timestamp lastLoginTime;
-    private String lastLoginSite;
-    private Integer status;
-    private Double usedSpace;
-    private Double available_space;
+    private String name;
+    private String password;
+    private Timestamp lastSigninTime;
+    private String lastSigninSite;
+
+    @TableLogic
+    private Integer state;
+    private Integer usedSpace;
+    private Integer availableSpace;
 
 }

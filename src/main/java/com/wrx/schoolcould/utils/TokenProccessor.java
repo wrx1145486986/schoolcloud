@@ -2,12 +2,12 @@ package com.wrx.schoolcould.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.Random;
 
-import sun.misc.BASE64Encoder;
+import java.util.Base64.Encoder;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.websocket.Session;
 
 /**
  * 生成Token的工具类
@@ -22,8 +22,8 @@ public class TokenProccessor {
         try {
             MessageDigest md = MessageDigest.getInstance("md5");
             byte md5[] = md.digest(token.getBytes());
-            BASE64Encoder encoder = new BASE64Encoder();
-            return encoder.encode(md5);
+            Encoder encoder = Base64.getEncoder();
+            return encoder.encodeToString(md5);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -46,7 +46,7 @@ public class TokenProccessor {
         String authorization = request.getHeader("Authorization");
         String token  = (String)request.getSession().getAttribute("Authorization");
 
-        if(authorization == "" || authorization.isEmpty()){
+        if(authorization == null || authorization.isEmpty()){
             return false;
         }
         if (token == null || token.isEmpty()){
